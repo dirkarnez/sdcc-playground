@@ -13,6 +13,8 @@
         "alefragnani.project-manager",
         "cl.stm8-debug",
         "ms-python.python",
-        "actboy168.tasks"
+        "actboy168.tasks",
+        "github.vscode-github-actions",
+        "ms-vscode.makefile-tools"
     ]
 }

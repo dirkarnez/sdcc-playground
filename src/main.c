@@ -12,18 +12,9 @@
 #include <reg52.h>
 #include <stdio.h>
 
-void delay_100ms(); //@12MHz
+void delay_100ms(void);
 
-void main()
-{
-    while (1)
-    {
-        P00 = !P00;
-        delay_100ms();
-    }
-}
-
-void delay_100ms()
+void delay_100ms(void)
 {
     unsigned char i, j;
 
@@ -32,7 +23,15 @@ void delay_100ms()
 
     do
     {
-        while (--j)
-            ;
+        while (--j);
     } while (--i);
+}
+
+void main(void)
+{
+    while (1)
+    {
+        P00 = !P00;
+        delay_100ms();
+    }
 }

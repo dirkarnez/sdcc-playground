@@ -11,7 +11,6 @@
 
 # dot files
 /.eide/log
-/.eide.usr.ctx.json
 
 # project out
 /build

@@ -18,7 +18,7 @@ jobs:
         shell: cmd
         run: |
           curl https://github.com/dirkarnez/sdcc-portable/releases/download/v4.4.0-rc3/sdcc-portable-v4.4.0-rc3.zip -L --output compiler.zip &&^
-          7z.exe x compiler.zip -o"sdcc"
+          7z.exe x compiler.zip -o"%USERPROFILE%\Downloads\sdcc-portable-v4.4.0-rc3"
           
       # - name: curl cmake-3.24.0-windows-x86_64.zip
       #   shell: cmd
@@ -76,12 +76,7 @@ jobs:
       - name: set PATH, build
         shell: cmd
         run: |
-            set PATH=^
-            ${{ github.workspace }}\sdcc\bin;
-            set CD_LINUX=%CD:\=/%
-            sdcc --version &&^
-            sdcc --help &&^
-            sdcc.exe --verbose -c --std-c99 -Iinclude -mmcs51 --opt-code-speed --iram-size 256 --xram-size 0 --code-size 8192 -MMD -o .\build\main.hex .\src\main.c
+          ./local-build.cmd
             
   # -DOpenSSL_DIR="%CD_LINUX%/openssl-v3.1.3-x86_64-8.1.0-release-posix-seh-rt_v6-rev0" ^
   # -DZLIB_ROOT="%CD_LINUX%/zlib-v1.2.13-mingw64-x86_64-posix-seh-rev0-8.1.0" ^
